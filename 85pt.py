@@ -28,8 +28,22 @@ class MyApp:
 			self.button1["background"] = "yellow"
 		else:
 			self.button1["background"] = "green"
-	
+class MyApp:
+        def __init__(self, parent):
+		self.myParent = parent  ### (7) remember my parent, the root
+		self.myContainer2 = Frame(parent)
+		self.myContainer2.pack()
 		
+		self.button2 = Button(self.myContainer2)
+		self.button2.configure(text="Cancel", background= "red")
+		self.button2.pack(side=LEFT)	
+		self.button2.bind("<Button-2>", self.button1Click) ### (2)
+	
+	def button1Click(self, event):    ### (3)
+		if self.button2["background"] == "red": ### (4)
+			self.button2["background"] = "blue"
+		else:
+			self.button2["background"] = "red"
 root = Tk()
 myapp = MyApp(root)
 root.mainloop()
