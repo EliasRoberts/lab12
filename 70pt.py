@@ -28,7 +28,10 @@ class MyApp:
 		self.button3.configure(text="Test?", background="cyan")  
 		self.button3.pack(side=LEFT)	  ### (3)
 			
-	
+	        self.button4 = Button(self.myContainer1)
+		self.button4["text"]= "Goodbye"
+		self.button4["background"] = "pink"
+		self.button4.pack(side=LEFT)	### (4)
 		
 root = Tk()
 myapp = MyApp(root)
